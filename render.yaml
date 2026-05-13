@@ -6,6 +6,7 @@ services:
     region: oregon
     plan: free
     rootDir: backend
+    pythonVersion: "3.12.3"
     buildCommand: ./build.sh
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
@@ -40,6 +41,7 @@ services:
     region: oregon
     plan: free
     rootDir: backend
+    pythonVersion: "3.12.3"
     buildCommand: pip install -r requirements.txt
     startCommand: celery -A worker.celery_app.celery_app worker --loglevel=info --concurrency=2
     envVars:
